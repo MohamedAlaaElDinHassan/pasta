@@ -1,0 +1,36 @@
+page-recipet {
+  ion-icon {
+    font-size: 1.1em;
+  }
+
+  #recipet-info{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+
+  #card-image{
+    height: 250px;
+    width: 100%;
+  }
+
+  .recipe-info-label{
+  font-family:'Cairo-Regular'!important;
+  font-size: 13px;
+  color: color($colors , dark);
+
+  }
+  .recipet-info-icon{
+    color: color($colors , danger);
+
+  }
+#title-recipet{
+  font-family:'Cairo-Bold'!important;
+  font-size: 16px;
+}
+  ion-segment-button{
+    font-family:'Cairo-Bold'!important;
+    color: color($colors , danger)!important;
+  }
+}

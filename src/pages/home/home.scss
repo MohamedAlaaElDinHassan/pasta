@@ -1,0 +1,61 @@
+page-home {
+
+
+
+ion-content{
+  background:url(/assets/img/login.jpg) no-repeat  top center;
+  background-size:cover;
+  background-position-x: 0px;
+  background-position-y: 0px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+
+  #overlay{
+    width: 100%;
+    height: 100%;
+    background: color($colors,dark);
+    position: absolute;
+    top: 0;
+    left:0;
+    display: block;
+    opacity: 0.8;
+
+    p {
+      margin-top: 90px;
+      color: color($colors,light);
+      font-size: 20px;
+      font-weight: 500;
+      font-family: 'Cairo-Bold'!important;
+
+
+      span{
+        color: color($colors,danger);
+        font-family: 'Cairo-Bold'!important;
+      }
+    }
+    .no-ground{
+      background: transparent;
+      color:color($colors,light);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .button-md,
+    .button-ios,
+    .button-wp {
+      font-size: 14px;
+      font-weight: 800;}
+  }
+
+}
+ion-label{
+  font-family: 'Cairo-Bold'!important;
+  font-size: 10px;
+}
+  .list-md .item-input.input-has-focus:last-child {
+    border-bottom: 0px !important;
+    -webkit-box-shadow:none !important;
+    box-shadow:none !important;
+  }
+}
