@@ -3,11 +3,11 @@ import { Nav, Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/search/search';
 import { ListPage } from '../pages/list/list';
 import { RecipetsPage } from '../pages/recipets/recipets';
 import { MailPage } from '../pages/mail/mail';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +15,7 @@ import { MailPage } from '../pages/mail/mail';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, icon:string}>;
 
@@ -28,8 +28,8 @@ export class MyApp {
       { title: 'الرئيسية', component: SearchPage , icon:"md-home"},
       { title: 'المفضلة', component: RecipetsPage , icon:'md-heart' },
       { title: 'اتصل بنا', component: MailPage , icon:'md-mail' },
-      { title: 'التقييم', component: ListPage , icon:'star' },
-      { title: 'تسجيل الخروج', component: HomePage , icon:"log-out"},
+      { title: 'اصنع وجبتك', component: MailPage , icon:'md-restaurant' },
+      { title: 'تسجيل الخروج', component: LoginPage , icon:"log-out"},
 
     ];
 
@@ -50,7 +50,7 @@ export class MyApp {
       if(page.title == "اتصل بنا")
       {
           window.location.href = 'mailto:example@gmail.com';
-      } else if(page.title == "التقييم")
+      } else if(page.title == "اصنع وجبتك")
       {
           let modal = this.modalCtrl.create(MailPage);
           modal.present();

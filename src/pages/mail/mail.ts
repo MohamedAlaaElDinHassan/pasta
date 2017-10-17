@@ -11,15 +11,17 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 @IonicPage()
 @Component({
   selector: 'page-mail',
-  templateUrl: 'mail.html',
+  templateUrl: '    666 ' +
+  ' ' +
+  '666mail.html',
 })
 export class MailPage {
+    add_text: string;
+    timing_text: string;
+    event_text: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MailPage');
   }
 
     dismiss() {

@@ -1,3 +1,68 @@
 page-mail {
+  ion-content {
+    background: url(/assets/img/wagba.jpg) no-repeat top center;
+    background-size: cover;
+    background-position-x: 0px;
+    background-position-y: 0px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+
+            .i-cook,
+            .list-md > .item-block:first-child,
+            .list-ios > .item-block:first-child{
+              border-bottom: 2px solid color($colors, danger) !important;
+              margin-bottom: 15px;
+              color: color($colors,light)!important;
+              font-size: 14px;
+              font-weight: 500;
+              font-family: 'Cairo-Bold'!important;
+              height: 50px !important;
+              background:color($colors,primary) !important;
+              opacity: 0.8;
+            }
+              .item-divider-md,
+              .item-divider-ios,
+              .item-divider-wp{
+                background: transparent !important;
+              }
+              .item-md,
+              .item-ios,
+              .item-wp{
+                //background: transparent !important;
+                background:color($colors,primary)  ;
+
+              }
+
+            .item-select .label-md,
+            .item-select .label-wp
+            {
+              color: color($colors,light)!important;
+            }
+
+            h6{
+              color: color($colors,danger)!important;
+              font-family: 'Cairo-Bold'!important;
+              font-weight: 500;
+            }
+            .item-divider-md{
+              border-bottom: 0px !important;
+            }
+            ion-item-divider{
+              background: transparent!important;
+            }
+          .alert-title {
+            font-size: 16px;
+            color: color($colors,danger)!important;
+            text-align: center!important;
+            font-weight: 800;
+
+          }
+
+
+
+
+  }
 
 }

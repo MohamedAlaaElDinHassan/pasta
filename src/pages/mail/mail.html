@@ -7,17 +7,58 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>اتصل بنا</ion-title>
-    <ion-buttons end>
-      <button right (click)="dismiss();">Close</button>
+    <ion-title>اصنع وجبتك</ion-title>
+    <ion-buttons end icon-only>
+      <button (click)="dismiss();" ion-button>
+        <ion-icon name="md-close"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content >
+<ion-content padding margin-bottom>
+  <ion-grid id="overlay-3">
+  <h6 text-center margin-bottom>وصفات ريجينا</h6>
+  <ion-list>
+    <ion-item class="i-cook">
+      <ion-label>الاضافات</ion-label>
+      <ion-select [(ngModel)]="add_text" [selectOptions]="{title: 'الإضافات'}">
+        <ion-option>لحوم</ion-option>
+        <ion-option>دجاج</ion-option>
+        <ion-option>صيامي</ion-option>
+        <ion-option>مأكولات بحرية</ion-option>
+      </ion-select>
+    </ion-item>
 
-  <a href="mailto:example@gmail.com">example@gmail.com</a>
+    <ion-item class="i-cook">
+      <ion-label>وقت التحضير</ion-label>
+      <ion-select [(ngModel)]="timing_text"
+                  [selectOptions]="{title: 'وقت تحضير الوجبة'}" multiple>
+        <ion-option>15 دقيقة</ion-option>
+        <ion-option>30 دقيقة</ion-option>
+        <ion-option>45 دقيقة</ion-option>
+        <ion-option>60 دقيقة</ion-option>
+      </ion-select>
+    </ion-item>
 
+    <ion-item class="i-cook">
+      <ion-label>المناسبة</ion-label>
+      <ion-select [(ngModel)]="event_text"
+                  [selectOptions]="{title: 'المناسبة'}" multiple>
+        <ion-option>عزومة</ion-option>
+        <ion-option>وجبة عشاء</ion-option>
+        <ion-option>وجبة غداء</ion-option>
+        <ion-option>وجبة خفيفة</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+
+      <button ion-button block padding>
+        <ion-icon name="search"></ion-icon>
+      </button>
+  </ion-list>
+  </ion-grid>
 </ion-content>
