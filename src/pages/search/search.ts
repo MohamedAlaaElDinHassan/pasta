@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BrowsePage } from '../browse/browse';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {BrowsePage} from '../browse/browse';
+import {PostsProvider} from "../../providers/posts/posts";
+import {RecipetPage} from "../recipet/recipet";
+
 /**
  * Generated class for the SearchPage page.
  *
@@ -10,18 +13,19 @@ import { BrowsePage } from '../browse/browse';
 
 @IonicPage()
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html',
+    selector: 'page-search',
+    templateUrl: 'search.html',
 })
 export class SearchPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
-    openBrowse(){
-    this.navCtrl.push(BrowsePage);
+    openBrowse() {
+        this.navCtrl.push(BrowsePage);
+    }
+
+    openPost(post) {
+        this.navCtrl.push(RecipetPage, {post});
     }
 }

@@ -16,6 +16,8 @@ import {MailPage} from "../pages/mail/mail";
 import { LoginPage } from '../pages/login/login';
 import { WishlistPage } from '../pages/wishlist/wishlist';
 import { InstallPage } from '../pages/install/install';
+import { PostsProvider } from '../providers/posts/posts';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { InstallPage } from '../pages/install/install';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+      HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,7 +56,8 @@ import { InstallPage } from '../pages/install/install';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostsProvider
   ]
 })
 export class AppModule {}

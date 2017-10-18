@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {PostsProvider} from "../../providers/posts/posts";
+import {RecipetPage} from "../recipet/recipet";
 
 /**
  * Generated class for the BrowsePage page.
@@ -10,16 +12,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-browse',
-  templateUrl: 'browse.html',
+    selector: 'page-browse',
+    templateUrl: 'browse.html',
 })
 export class BrowsePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BrowsePage');
-  }
-
+    openPost(post) {
+        this.navCtrl.push(RecipetPage, {post});
+    }
 }

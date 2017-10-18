@@ -1,43 +1,22 @@
-<!--
-  Generated template for the SearchPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>الرئيسية</ion-title>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>الرئيسية</ion-title>
 
-    <ion-buttons end>
-      <button ion-button right icon-only  (click)="openBrowse()">
-          <ion-icon name="md-search"></ion-icon>
-      </button>
-      <button ion-button right icon-only>
-          <ion-icon name="md-basket"></ion-icon>
-      </button>
-    </ion-buttons>
-
-  </ion-navbar>
+        <ion-buttons end>
+            <button ion-button right icon-only (click)="openBrowse()">
+                <ion-icon name="md-search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
-  <ion-content class="card-background-page">
-
-    <ion-card>
-      <img class="card-image" src="/assets/img/01.jpg"/>
-      <div class="card-title card-overlay">ماكرونة بالصلصة</div>
+<ion-content class="card-background-page">
+    <ion-card *ngFor="let post of _posts.get()"
+              (click)="openPost(post)">
+        <img class="card-image" [src]="'assets/img/' + post.image"/>
+        <div class="card-title card-overlay">{{ post.title }}</div>
     </ion-card>
-
-    <ion-card>
-      <img class="card-image" src="/assets/img/02.jpg"/>
-      <div class="card-title card-overlay">ماكرونة بالكريمة</div>
-    </ion-card>
-
-    <ion-card>
-      <img class="card-image" src="/assets/img/01.jpg"/>
-      <div class="card-title card-overlay">ماكرونة بالخضار</div>
-    </ion-card>
-
 </ion-content>

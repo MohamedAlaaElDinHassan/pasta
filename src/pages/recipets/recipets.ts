@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RecipetPage} from "../recipet/recipet";
+import {PostsProvider} from "../../providers/posts/posts";
 
 /**
  * Generated class for the RecipetsPage page.
@@ -11,20 +12,15 @@ import {RecipetPage} from "../recipet/recipet";
 
 @IonicPage()
 @Component({
-  selector: 'page-recipets',
-  templateUrl: 'recipets.html',
+    selector: 'page-recipets',
+    templateUrl: 'recipets.html',
 })
 export class RecipetsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecipetsPage');
-  }
-
-    openPost() {
-    this.navCtrl.push(RecipetPage);
+    constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
     }
 
+    openPost(post) {
+        this.navCtrl.push(RecipetPage, {post});
+    }
 }
