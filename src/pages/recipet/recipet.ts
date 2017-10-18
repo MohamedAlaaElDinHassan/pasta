@@ -14,6 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'recipet.html',
 })
 export class RecipetPage {
+    tab: string = 'ingredients';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

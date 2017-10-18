@@ -13,7 +13,7 @@
 
     <ion-buttons end>
       <button ion-button right icon-only>
-        <ion-icon name="md-heart-outline"></ion-icon>
+        <ion-icon name="md-basket"></ion-icon>
       </button>
     </ion-buttons>
 
@@ -41,7 +41,7 @@
 <h2 id="title-recipet">عنوان الوجبه</h2>
 
   <div>
-    <ion-segment>
+    <ion-segment [(ngModel)]="tab">
       <ion-segment-button value="ingredients">
         المقادير
       </ion-segment-button>
@@ -50,10 +50,21 @@
 الخطوات
       </ion-segment-button>
 
-      <ion-segment-button value="note">
-        اقتراحات
-      </ion-segment-button>
     </ion-segment>
+  </div>
+
+  <div [ngSwitch]="tab">
+    <ion-list *ngSwitchCase="'ingredients'">
+      <ion-item>
+        <h2>Ruby</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'method'">
+      <ion-item>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
   </div>
 
 </ion-content>

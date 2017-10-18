@@ -1,0 +1,60 @@
+page-install {
+  direction: rtl;
+  font-family: 'Cairo-Bold';
+  color: color($colors,light);
+  button{
+    color: color($colors,light);
+  }
+
+
+  .tutorial-page {
+    background: color($colors,primary);
+
+    .toolbar-background {
+      background: color($colors,danger);
+      border-color: transparent;
+      font-family: 'Cairo-Bold'!important;
+
+    }
+
+    .slide-zoom {
+      height: 100%;
+    }
+
+    .slide-title {
+      margin-top: 2.8rem;
+      font-family: 'Cairo-Bold'!important;
+      color: color($colors,light);
+
+
+    }
+
+    .slide-image {
+      max-height: 50%;
+      max-width: 60%;
+      margin: 18px 0;
+    }
+
+    b {
+      font-weight: 500;
+      font-family: 'Cairo-Bold'!important;
+    }
+
+    p {
+      padding: 0 40px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: color($colors,light);
+      font-family: 'Cairo-Regular'!important;
+
+
+      b {
+        color: #000000;
+      }
+    }
+
+  }
+  .swiper-pagination-bullet-active{
+    background:color($colors,danger) !important;
+  }
+}

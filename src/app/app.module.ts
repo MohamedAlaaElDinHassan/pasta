@@ -14,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {MailPage} from "../pages/mail/mail";
 import { LoginPage } from '../pages/login/login';
+import { WishlistPage } from '../pages/wishlist/wishlist';
+import { InstallPage } from '../pages/install/install';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { LoginPage } from '../pages/login/login';
       RecipetPage,
       BrowsePage,
       MailPage,
-      LoginPage
+      LoginPage,
+      WishlistPage,
+      InstallPage
 
   ],
   imports: [
@@ -42,7 +46,9 @@ import { LoginPage } from '../pages/login/login';
       RecipetPage,
       BrowsePage,
       MailPage,
-      LoginPage
+      LoginPage,
+      WishlistPage,
+      InstallPage
   ],
   providers: [
     StatusBar,

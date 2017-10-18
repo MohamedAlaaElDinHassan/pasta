@@ -4,10 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SearchPage } from '../pages/search/search';
-import { ListPage } from '../pages/list/list';
 import { RecipetsPage } from '../pages/recipets/recipets';
 import { MailPage } from '../pages/mail/mail';
 import { LoginPage } from '../pages/login/login';
+import { WishlistPage } from '../pages/wishlist/wishlist';
+import { InstallPage } from '../pages/install/install';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,7 +16,7 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = InstallPage;
 
   pages: Array<{title: string, component: any, icon:string}>;
 
@@ -27,8 +28,9 @@ export class MyApp {
 
       { title: 'الرئيسية', component: SearchPage , icon:"md-home"},
       { title: 'المفضلة', component: RecipetsPage , icon:'md-heart' },
-      { title: 'اتصل بنا', component: MailPage , icon:'md-mail' },
       { title: 'اصنع وجبتك', component: MailPage , icon:'md-restaurant' },
+      { title: 'قائمة المشتريات', component: WishlistPage , icon:'md-basket' },
+      { title: 'اتصل بنا', component: MailPage , icon:'md-mail' },
       { title: 'تسجيل الخروج', component: LoginPage , icon:"log-out"},
 
     ];

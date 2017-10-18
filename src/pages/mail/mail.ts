@@ -11,9 +11,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 @IonicPage()
 @Component({
   selector: 'page-mail',
-  templateUrl: '    666 ' +
-  ' ' +
-  '666mail.html',
+  templateUrl: 'mail.html',
 })
 export class MailPage {
     add_text: string;

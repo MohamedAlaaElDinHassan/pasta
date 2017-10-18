@@ -1,0 +1,18 @@
+page-wishlist {
+  .item-button{
+    color: color($colors, danger);
+  }
+  .nike{
+    color: color($colors, secondary)!important;
+  }
+  ion-label{
+    h2{
+      color: color($colors, primary);
+
+    }
+    .one{
+      color: color($colors, dark);
+
+    }
+  }
+}
