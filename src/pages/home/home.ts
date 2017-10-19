@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {MenuController, NavController} from 'ionic-angular';
 import {SearchPage} from "../search/search";
 
 @Component({
@@ -8,8 +8,8 @@ import {SearchPage} from "../search/search";
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController) {
-
+    constructor(public navCtrl: NavController, public menu: MenuController) {
+        this.menu.swipeEnable(false);
     }
 
     root(){

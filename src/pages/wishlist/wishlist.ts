@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {PostsProvider} from "../../providers/posts/posts";
+import {ShoppingListProvider} from "../../providers/shopping-list/shopping-list";
 
 /**
  * Generated class for the WishlistPage page.
@@ -16,6 +16,10 @@ import {PostsProvider} from "../../providers/posts/posts";
 })
 export class WishlistPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public shopping: ShoppingListProvider) {
+  }
+
+  deleteFrom(shopping) {
+    this.shopping.unset(shopping);
   }
 }

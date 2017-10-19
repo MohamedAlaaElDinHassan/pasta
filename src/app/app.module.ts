@@ -18,6 +18,7 @@ import { WishlistPage } from '../pages/wishlist/wishlist';
 import { InstallPage } from '../pages/install/install';
 import { PostsProvider } from '../providers/posts/posts';
 import {HttpModule} from "@angular/http";
+import { ShoppingListProvider } from '../providers/shopping-list/shopping-list';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import {HttpModule} from "@angular/http";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+        backButtonText: '',
+        pageTransition: 'ios-transition'
+    }),
       HttpModule
   ],
   bootstrap: [IonicApp],
@@ -57,7 +61,8 @@ import {HttpModule} from "@angular/http";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PostsProvider
+    PostsProvider,
+    ShoppingListProvider
   ]
 })
 export class AppModule {}

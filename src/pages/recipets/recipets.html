@@ -9,8 +9,8 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-    <ion-list *ngFor="let post of _posts.favorites()">
-        <ion-item no-lines>
+    <ion-list *ngIf="_posts.favorites().length > 0">
+        <ion-item no-lines *ngFor="let post of _posts.favorites()">
             <ion-card (click)="openPost(post)">
                 <img class="card-image" [src]="'/assets/img/' + post.image"/>
                 <ion-card-content>
@@ -34,4 +34,12 @@
             </ion-card>
         </ion-item>
     </ion-list>
+
+
+    <div *ngIf="_posts.favorites().length <= 0" text-center class="no-posts">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <h2>لا يوجد في مقالات في المفضلة</h2>
+        <button ion-button primary (click)="goToBrowse()">تصفح المقالات الآن</button>
+    </div>
 </ion-content>

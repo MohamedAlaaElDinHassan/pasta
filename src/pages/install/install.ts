@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {SearchPage} from "../search/search";
 import {LoginPage} from "../login/login";
 
@@ -12,8 +12,8 @@ import {LoginPage} from "../login/login";
 
 @IonicPage()
 @Component({
-  selector: 'page-install',
-  templateUrl: 'install.html',
+    selector: 'page-install',
+    templateUrl: 'install.html',
 })
 export class InstallPage {
     slides = [
@@ -34,15 +34,16 @@ export class InstallPage {
         }
     ];
 
+    constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+        this.menu.swipeEnable(false);
+    }
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    gest() {
+        this.navCtrl.setRoot(SearchPage);
+    }
 
-  gest() {
-    this.navCtrl.setRoot(SearchPage);
-  }
-  user(){
-      this.navCtrl.push(LoginPage);
-  }
+    user() {
+        this.navCtrl.push(LoginPage);
+    }
 
 }

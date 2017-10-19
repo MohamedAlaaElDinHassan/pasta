@@ -31,3 +31,16 @@ input,a{
   font-family: 'Cairo-Bold'!important;
   font-size: 13px;
 }
+
+.no-posts {
+  margin-top: 20vh;
+  font-family: 'Cairo-Bold'!important;
+
+  ion-icon {
+    color: color($colors, danger);
+    font-size: 64px;
+  }
+  h2 {
+    color: color($colors, danger)
+  }
+}

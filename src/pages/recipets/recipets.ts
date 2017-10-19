@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {RecipetPage} from "../recipet/recipet";
 import {PostsProvider} from "../../providers/posts/posts";
+import {SearchPage} from "../search/search";
 
 /**
  * Generated class for the RecipetsPage page.
@@ -22,5 +23,9 @@ export class RecipetsPage {
 
     openPost(post) {
         this.navCtrl.push(RecipetPage, {post});
+    }
+
+    goToBrowse() {
+        this.navCtrl.push(SearchPage);
     }
 }

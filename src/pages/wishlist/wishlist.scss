@@ -1,18 +1,41 @@
 page-wishlist {
-  .item-button{
-    color: color($colors, danger);
-  }
-  .nike{
-    color: color($colors, secondary)!important;
-  }
-  ion-label{
-    h2{
-      color: color($colors, primary);
+  ion-item {
+    font-family: 'Cairo-Regular' !important;
 
+    .item-button{
+      color: color($colors, danger);
     }
-    .one{
-      color: color($colors, dark);
 
+    .nike{
+      color: color($colors, secondary)!important;
+    }
+
+    ion-label{
+      h2{
+        font-size: 16px;
+        color: color($colors, primary);
+        margin-bottom: 0;
+      }
+
+      p {
+        color: lighten(color($colors, dark), 35%);
+        margin: 2px 0;
+
+        .one{
+          color: color($colors, dark);
+        }
+      }
+    }
+
+    &.complete {
+      h2 {
+        color: lighten(color($colors, dark), 50%);
+        text-decoration: line-through;
+      }
+
+      p {
+        color: lighten(color($colors, dark), 60%);
+      }
     }
   }
 }

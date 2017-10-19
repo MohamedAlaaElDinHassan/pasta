@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {SearchPage} from "../search/search";
 
@@ -12,19 +12,21 @@ import {SearchPage} from "../search/search";
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+    selector: 'page-login',
+    templateUrl: 'login.html',
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-    SignUp(){
-    this.navCtrl.push(HomePage);
+    constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+        this.menu.swipeEnable(false);
     }
-    root(){
-      this.navCtrl.setRoot(SearchPage);
+
+    SignUp() {
+        this.navCtrl.push(HomePage);
+    }
+
+    root() {
+        this.navCtrl.setRoot(SearchPage);
     }
 
 }

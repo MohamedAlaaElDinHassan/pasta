@@ -1,21 +1,31 @@
 <ion-header>
     <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+
         <ion-title>قائمة المشتريات</ion-title>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <ion-list>
-        <ion-item *ngFor="let post of _posts.shopping()">
-            <h2>{{ post }}</h2>
-            <p><span>العدد</span> <span class="one">12</span></p>
-            <button ion-button clear item-end class="nike">
-                <ion-icon name="md-checkmark"></ion-icon>
+    <ion-list *ngIf="shopping.get().length > 0">
+        <ion-item *ngFor="let post of shopping.get()"
+                  [class]="post.complete ? 'complete' : ''">
+            <h2>{{ post.name }}</h2>
+            <p><span>العدد</span> <span class="one">{{ post.count }}</span></p>
+
+            <button ion-button clear item-end class="nike" (click)="post.complete = ! post.complete">
+                <ion-icon [name]="post.complete ? 'remove' : 'checkmark'"></ion-icon>
             </button>
-            <button ion-button clear item-end>
-                <ion-icon name="trash"></ion-icon>
-            </button>
+            <button ion-button clear item-end (click)="deleteFrom(post)"><ion-icon name="trash"></ion-icon></button>
         </ion-item>
     </ion-list>
+
+    <div *ngIf="shopping.get().length <= 0" text-center class="no-posts">
+        <ion-icon name="ios-basket-outline"></ion-icon>
+
+        <h2>لا يوجد منتجات في السلة</h2>
+    </div>
 </ion-content>
