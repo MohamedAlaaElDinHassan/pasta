@@ -19,6 +19,7 @@ import { InstallPage } from '../pages/install/install';
 import { PostsProvider } from '../providers/posts/posts';
 import {HttpModule} from "@angular/http";
 import { ShoppingListProvider } from '../providers/shopping-list/shopping-list';
+import {SearchFilterPipe} from "../pipes/search-filter/search-filter";
 
 @NgModule({
   declarations: [
@@ -32,8 +33,8 @@ import { ShoppingListProvider } from '../providers/shopping-list/shopping-list';
       MailPage,
       LoginPage,
       WishlistPage,
-      InstallPage
-
+      InstallPage,
+      SearchFilterPipe
   ],
   imports: [
     BrowserModule,

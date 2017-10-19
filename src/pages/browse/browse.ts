@@ -16,8 +16,13 @@ import {RecipetPage} from "../recipet/recipet";
     templateUrl: 'browse.html',
 })
 export class BrowsePage {
+    public filter = {search: null};
+    public posts;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
+        if (this.navParams.get('posts') !== undefined) {
+            this.posts = this.navParams.get('posts');
+        } else this.posts = this._posts.get();
     }
 
     openPost(post) {

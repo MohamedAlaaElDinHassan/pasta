@@ -12,7 +12,7 @@
     <ion-list *ngIf="_posts.favorites().length > 0">
         <ion-item no-lines *ngFor="let post of _posts.favorites()">
             <ion-card (click)="openPost(post)">
-                <img class="card-image" [src]="'/assets/img/' + post.image"/>
+                <img class="card-image" [src]="'assets/img/' + post.image"/>
                 <ion-card-content>
                     <ion-card-title>{{ post.title }}</ion-card-title>
                 </ion-card-content>

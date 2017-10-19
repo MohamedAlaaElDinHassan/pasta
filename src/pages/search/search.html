@@ -16,7 +16,7 @@
 <ion-content class="card-background-page">
     <ion-card *ngFor="let post of _posts.get()"
               (click)="openPost(post)">
-        <img class="card-image" [src]="'assets/img/' + post.image"/>
+        <img class="card-image" [src]="'assets/img/' + post.image" width="100%" />
         <div class="card-title card-overlay">{{ post.title }}</div>
     </ion-card>
 </ion-content>
