@@ -7,30 +7,59 @@ page-search {
       text-align: center;
       box-shadow: 5px 5px 5px #222 !important;
 
-      img {
-      display:block !important;
-      max-width:100% !important;
-      height:auto !important;
+      .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 1.2em;
+        padding: 4px;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        font-family: 'Cairo-Regular' !important;
       }
 
-      .card-title {
-      position: absolute;
-      top: 36%;
-      font-size: 1.2em;
-      padding: 4px;
-      width: 100%;
-      font-weight: bold;
-      color: #fff;
-      font-family: 'Cairo-Regular'!important;
-    }
-
-    .card-overlay{
-      background: rgba(0,0,0,0.8);
-    }
-    .card-image{
-      height: inherit;
-      box-shadow: 10px 10px 5px #888888;
-    }
+      .card-overlay {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      .card-image {
+        box-shadow: 10px 10px 5px #888888;
+        display: block !important;
+        max-width: 100% !important;
+      }
     }
   }
+
+
+  @media (max-width: 575px) {
+    .card-image {
+      max-width: 100% !important;
+      height: 164px !important;
+    }
+  }
+  @media (min-width: 576px) and (max-width:767px){
+    .card-image {
+      max-width: 100% !important;
+      height: 250px !important;
+    }
+  }
+  @media (min-width: 768px) and (max-width:991px){
+    .card-image {
+      max-width: 100% !important;
+      height: 164px !important;
+    }
+  }
+  @media (min-width: 992px) and (max-width:1199px){
+    .card-image {
+      max-width: 100% !important;
+      height: 164px !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    .card-image {
+      max-width: 100% !important;
+      height: 164px !important;
+    }
+  }
+
+
 }
