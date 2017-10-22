@@ -3,10 +3,17 @@ page-search {
 
     ion-card {
       position: relative;
+      display: block;
       text-align: center;
-    }
+      box-shadow: 5px 5px 5px #222 !important;
 
-    .card-title {
+      img {
+      display:block !important;
+      max-width:100% !important;
+      height:auto !important;
+      }
+
+      .card-title {
       position: absolute;
       top: 36%;
       font-size: 1.2em;
@@ -21,11 +28,9 @@ page-search {
       background: rgba(0,0,0,0.8);
     }
     .card-image{
-      max-height: 200px;
+      height: inherit;
       box-shadow: 10px 10px 5px #888888;
     }
-  }
-  ion-card{
-    box-shadow: 5px 5px 5px #222 !important;
+    }
   }
 }

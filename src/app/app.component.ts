@@ -20,14 +20,12 @@ export class MyApp {
     rootPage: any = InstallPage;
     pages: Array<{ title: string, component: any, icon: string }>;
 
-    constructor(
-        public platform: Platform,
-        public statusBar: StatusBar,
-        public splashScreen: SplashScreen,
-        public modalCtrl: ModalController,
-        public shopping: ShoppingListProvider,
-        public storage: Storage
-    ) {
+    constructor(public platform: Platform,
+                public statusBar: StatusBar,
+                public splashScreen: SplashScreen,
+                public modalCtrl: ModalController,
+                public shopping: ShoppingListProvider,
+                public storage: Storage) {
         this.storage.get('endSlides').then((endSlides) => {
             if (endSlides) this.rootPage = SearchPage;
             else this.rootPage = InstallPage;
@@ -58,12 +56,10 @@ export class MyApp {
         if (page.title === "اتصل بنا")
             window.location.href = 'mailto:example@gmail.com';
 
-        else if (page.title === "اصنع وجبتك") {
-            let modal = this.modalCtrl.create(page.component);
-            modal.present();
-        }
+        else if (page.title === "اصنع وجبتك")
+            this.modalCtrl.create(page.component).present();
 
-        else if (page.title === 'تسجيل الخروج')
+        else if (page.title === 'تسجيل الخروج' || page.title === 'الرئيسية')
             this.nav.setRoot(page.component);
 
         else this.nav.push(page.component);

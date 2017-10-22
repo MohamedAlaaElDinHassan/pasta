@@ -40,8 +40,7 @@ import {IonicStorageModule} from "@ionic/storage";
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp, {
-            backButtonText: '',
-            pageTransition: 'ios-transition'
+            backButtonText: ''
         }),
         HttpModule,
         IonicStorageModule.forRoot()
