@@ -64,5 +64,14 @@ page-mail {
 
 
   }
+}
 
+ion-alert {
+  font-family: 'Cairo-Regular';
+
+  .alert-title {
+    color: color($colors, primary) !important;
+    text-align: center;
+    font-family: 'Cairo-Bold';
+  }
 }

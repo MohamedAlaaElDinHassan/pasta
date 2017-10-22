@@ -24,7 +24,7 @@
         <ion-list>
             <ion-item class="i-cook">
                 <ion-label>الاضافات</ion-label>
-                <ion-select [(ngModel)]="add_text" [selectOptions]="{title: 'الإضافات'}">
+                <ion-select [(ngModel)]="add_text" [selectOptions]="{title: 'الإضافات'}" cancelText="إلغاء" okText="اختيار">
                     <ion-option>لحوم</ion-option>
                     <ion-option>دجاج</ion-option>
                     <ion-option>صيامي</ion-option>
@@ -35,7 +35,7 @@
             <ion-item class="i-cook">
                 <ion-label>وقت التحضير</ion-label>
                 <ion-select [(ngModel)]="timing_text"
-                            [selectOptions]="{title: 'وقت تحضير الوجبة'}" multiple>
+                            [selectOptions]="{title: 'وقت تحضير الوجبة'}" multiple cancelText="إلغاء" okText="اختيار">
                     <ion-option>15 دقيقة</ion-option>
                     <ion-option>30 دقيقة</ion-option>
                     <ion-option>45 دقيقة</ion-option>
@@ -46,7 +46,7 @@
             <ion-item class="i-cook">
                 <ion-label>المناسبة</ion-label>
                 <ion-select [(ngModel)]="event_text"
-                            [selectOptions]="{title: 'المناسبة'}" multiple>
+                            [selectOptions]="{title: 'المناسبة'}" multiple cancelText="إلغاء" okText="اختيار">
                     <ion-option>عزومة</ion-option>
                     <ion-option>وجبة عشاء</ion-option>
                     <ion-option>وجبة غداء</ion-option>

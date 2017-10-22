@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, MenuController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {PostsProvider} from "../../providers/posts/posts";
 import {ShoppingListProvider} from "../../providers/shopping-list/shopping-list";
 
@@ -23,7 +23,9 @@ export class RecipetPage {
                 public navParams: NavParams,
                 public _posts: PostsProvider,
                 public toastCtrl: ToastController,
-                public shoppingList: ShoppingListProvider) {
+                public shoppingList: ShoppingListProvider,
+                public menu: MenuController) {
+        this.menu.swipeEnable(true);
         this.post = this.navParams.get('post');
     }
 

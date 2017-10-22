@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController, LoadingController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController, LoadingController, MenuController} from 'ionic-angular';
 import {PostsProvider} from "../../providers/posts/posts";
 import {BrowsePage} from "../browse/browse";
 
@@ -20,8 +20,8 @@ export class MailPage {
     timing_text: string;
     event_text: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _posts: PostsProvider, public loadingCtrl: LoadingController) {
-
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _posts: PostsProvider, public loadingCtrl: LoadingController, public menu: MenuController) {
+        this.menu.swipeEnable(false);
     }
 
     dismiss() {

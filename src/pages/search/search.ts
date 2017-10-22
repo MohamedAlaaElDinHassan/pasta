@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {BrowsePage} from '../browse/browse';
 import {PostsProvider} from "../../providers/posts/posts";
 import {RecipetPage} from "../recipet/recipet";
@@ -18,7 +18,8 @@ import {RecipetPage} from "../recipet/recipet";
 })
 export class SearchPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider, public menu: MenuController) {
+        this.menu.swipeEnable(true);
     }
 
     openBrowse() {

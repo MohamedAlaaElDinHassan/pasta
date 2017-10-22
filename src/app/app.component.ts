@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform, ModalController} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
+import {Storage} from "@ionic/storage";
 
 import {SearchPage} from '../pages/search/search';
 import {RecipetsPage} from '../pages/recipets/recipets';
@@ -24,11 +25,16 @@ export class MyApp {
         public statusBar: StatusBar,
         public splashScreen: SplashScreen,
         public modalCtrl: ModalController,
-        public shopping: ShoppingListProvider
+        public shopping: ShoppingListProvider,
+        public storage: Storage
     ) {
-        this.initializeApp();
+        this.storage.get('endSlides').then((endSlides) => {
+            if (endSlides) this.rootPage = SearchPage;
+            else this.rootPage = InstallPage;
 
-        // used for an example of ngFor and navigation
+            this.initializeApp();
+        });
+
         this.pages = [
             {title: 'الرئيسية', component: SearchPage, icon: "md-home"},
             {title: 'المفضلة', component: RecipetsPage, icon: 'md-heart'},
@@ -49,15 +55,17 @@ export class MyApp {
     }
 
     openPage(page) {
-        if (page.title == "اتصل بنا") {
+        if (page.title === "اتصل بنا")
             window.location.href = 'mailto:example@gmail.com';
-        } else if (page.title == "اصنع وجبتك") {
-            let modal = this.modalCtrl.create(MailPage);
+
+        else if (page.title === "اصنع وجبتك") {
+            let modal = this.modalCtrl.create(page.component);
             modal.present();
-        } else {
-            // Reset the content nav to have just this page
-            // we wouldn't want the back button to show in this scenario
-            this.nav.setRoot(page.component);
         }
+
+        else if (page.title === 'تسجيل الخروج')
+            this.nav.setRoot(page.component);
+
+        else this.nav.push(page.component);
     }
 }

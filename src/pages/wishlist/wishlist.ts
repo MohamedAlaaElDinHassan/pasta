@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {ShoppingListProvider} from "../../providers/shopping-list/shopping-list";
 
 /**
@@ -16,7 +16,8 @@ import {ShoppingListProvider} from "../../providers/shopping-list/shopping-list"
 })
 export class WishlistPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public shopping: ShoppingListProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public shopping: ShoppingListProvider, public menu: MenuController) {
+      this.menu.swipeEnable(true);
   }
 
   deleteFrom(shopping) {

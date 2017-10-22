@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams, Slides} from 'ionic-angular';
 import {SearchPage} from "../search/search";
 import {LoginPage} from "../login/login";
+import {Storage} from "@ionic/storage";
 
 /**
  * Generated class for the InstallPage page.
@@ -36,7 +37,7 @@ export class InstallPage {
         }
     ];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController, public storage: Storage) {
         this.menu.swipeEnable(false);
     }
 
@@ -45,11 +46,12 @@ export class InstallPage {
     }
 
     gest() {
-        this.navCtrl.setRoot(SearchPage);
+        this.navCtrl.setRoot(SearchPage).then(() => {
+            this.storage.set('endSlides', 'true');
+        });
     }
 
     user() {
         this.navCtrl.push(LoginPage);
     }
-
 }
