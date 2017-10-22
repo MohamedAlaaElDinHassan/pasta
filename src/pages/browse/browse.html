@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-    <ion-searchbar placeholder="البحث عن وصفات ...." ([ngModel])="filter.search"></ion-searchbar>
+    <ion-searchbar placeholder="البحث عن وصفات ...." [(ngModel)]="filter.search"></ion-searchbar>
 
     <ion-list>
         <ion-item no-lines *ngFor="let post of posts | searchFilter:filter">

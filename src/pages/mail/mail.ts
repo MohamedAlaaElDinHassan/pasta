@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController, LoadingController} from 'ionic-angular';
 import {PostsProvider} from "../../providers/posts/posts";
 import {BrowsePage} from "../browse/browse";
 
@@ -20,7 +20,7 @@ export class MailPage {
     timing_text: string;
     event_text: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _posts: PostsProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _posts: PostsProvider, public loadingCtrl: LoadingController) {
 
     }
 
@@ -28,13 +28,20 @@ export class MailPage {
         this.viewCtrl.dismiss();
     }
 
-    search () {
+    search() {
         let posts = this._posts.search({
             add: this.add_text,
             time: this.timing_text,
             event: this.event_text
         });
 
-        this.navCtrl.push(BrowsePage, {posts});
+
+        this.loadingCtrl.create({
+            content: "جارى البحث ...",
+            duration: 1500
+        }).present()
+            .then(() => {
+                this.navCtrl.push(BrowsePage, {posts});
+            });
     }
 }
