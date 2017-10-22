@@ -1,36 +1,5 @@
 page-recipets {
-.card-background-page{
-  ion-card{
-    position: relative;
+  .card-background-page {
+
   }
-  ion-card-title{
-    font-family:'Cairo-Bold'!important;
-    font-size: 12px;
-  }
-  .card-image{
-    height: auto;
-    display: block;
-  }
-  .card-recipets-info{
-    position: absolute;
-    top:0;
-    left:5px;
-    list-style: none;
-    text-align: center;
-    font-size:12px;
-    color:#fff;
-  }
-  .card-recipets-info li{
-    display: inline-block;
-    position:relative;
-    background: rgba(0,0,0,0.33);
-    margin: 0 auto;
-    padding: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    height: 25px;
-    line-height: 25px;
-  }
-}
 }

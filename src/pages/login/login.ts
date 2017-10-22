@@ -1,23 +1,22 @@
 import {Component} from '@angular/core';
-import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
+import {Events, IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {SearchPage} from "../search/search";
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Storage} from "@ionic/storage";
 
 @IonicPage()
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html',
 })
-export class LoginPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+export class LoginPage {
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public menu: MenuController,
+        public storage: Storage,
+        public events: Events) {
         this.menu.swipeEnable(false);
     }
 
@@ -26,7 +25,9 @@ export class LoginPage {
     }
 
     root() {
-        this.navCtrl.setRoot(SearchPage);
+        this.storage.set('isAuth', true).then(() => {
+            this.events.publish('user:login');
+            this.navCtrl.setRoot(SearchPage);
+        });
     }
-
 }

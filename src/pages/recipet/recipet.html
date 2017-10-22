@@ -24,11 +24,9 @@
 </ion-header>
 
 <ion-content>
+    <img [src]="'assets/img/' + post.image" width="100%" />
 
-    <img id="card-image" [src]="'assets/img/' + post.image"/>
-
-    <div padding>
-
+    <div padding-horizontal>
         <ion-row id="recipet-info">
             <ion-col>
                 <ion-icon class="recipet-info-icon" name="md-time"></ion-icon>
@@ -45,7 +43,6 @@
                 1 <span class="recipe-info-label">الاشخاص</span>
             </ion-col>
         </ion-row>
-
         <h2 id="title-recipet">{{ post.title }}</h2>
 
         <div>
@@ -59,7 +56,6 @@
                 </ion-segment-button>
             </ion-segment>
         </div>
-
         <div [ngSwitch]="tab">
             <ul *ngSwitchCase="'ingredients'">
                 <li *ngFor="let ingredient of _posts.ingredients(post); let i = index">

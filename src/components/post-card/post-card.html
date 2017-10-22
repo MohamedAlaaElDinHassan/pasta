@@ -1,0 +1,16 @@
+<ion-card (click)="openPost(post)">
+    <img class="card-image img-responsive" [src]="'assets/img/' + post.image"/>
+
+    <ul class="card-recipets-info">
+        <li>
+            <ion-icon name="time"></ion-icon> {{ post.tags.time }}
+        </li>
+        <li>
+            <ion-icon name="timer"></ion-icon> 12
+        </li>
+        <li>
+            <ion-icon name="md-body"></ion-icon> 1
+        </li>
+    </ul>
+    <div class="card-title card-overlay">{{ post.title }}</div>
+</ion-card>

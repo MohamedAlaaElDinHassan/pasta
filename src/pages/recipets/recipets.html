@@ -9,32 +9,13 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-    <ion-list *ngIf="_posts.favorites().length > 0">
-        <ion-item no-lines *ngFor="let post of _posts.favorites()">
-            <ion-card (click)="openPost(post)">
-                <img class="card-image" [src]="'assets/img/' + post.image"/>
-                <ion-card-content>
-                    <ion-card-title>{{ post.title }}</ion-card-title>
-                </ion-card-content>
-
-                <ul class="card-recipets-info">
-                    <li>
-                        <ion-icon name="time"></ion-icon>
-                        {{ post.tags.time }}
-                    </li>
-                    <li>
-                        <ion-icon name="timer"></ion-icon>
-                        12
-                    </li>
-                    <li>
-                        <ion-icon name="md-body"></ion-icon>
-                        1
-                    </li>
-                </ul>
-            </ion-card>
-        </ion-item>
-    </ion-list>
-
+    <ion-grid *ngIf="_posts.favorites().length > 0">
+        <ion-row>
+            <ion-col col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 *ngFor="let post of _posts.favorites()">
+                <post-card [post]="post"></post-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
     <div *ngIf="_posts.favorites().length <= 0" text-center class="no-posts">
         <ion-icon name="heart-outline"></ion-icon>

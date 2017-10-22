@@ -1,0 +1,45 @@
+post-card {
+  ion-card {
+    position: relative;
+    display: block;
+    text-align: center;
+    box-shadow: 5px 5px 5px #222 !important;
+    height: 220px;
+
+    .card-title {
+      position: absolute;
+      bottom: 25%;
+      font-size: 1.2em;
+      padding: 4px;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      font-family: 'Cairo-Regular' !important;
+    }
+
+    .card-overlay {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .card-recipets-info {
+      position: absolute;
+      top: 0;
+      left: 5px;
+      list-style: none;
+      text-align: center;
+      font-size: 12px;
+      color: #fff;
+    }
+    .card-recipets-info li {
+      display: inline-block;
+      position: relative;
+      background: rgba(0, 0, 0, 0.33);
+      margin: 0 auto;
+      padding: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      height: 25px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform, ModalController} from 'ionic-angular';
+import {Nav, Platform, ModalController, Events} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Storage} from "@ionic/storage";
@@ -11,6 +11,7 @@ import {LoginPage} from '../pages/login/login';
 import {WishlistPage} from '../pages/wishlist/wishlist';
 import {InstallPage} from '../pages/install/install';
 import {ShoppingListProvider} from "../providers/shopping-list/shopping-list";
+import {HomePage} from "../pages/home/home";
 
 @Component({
     templateUrl: 'app.html'
@@ -25,11 +26,16 @@ export class MyApp {
                 public splashScreen: SplashScreen,
                 public modalCtrl: ModalController,
                 public shopping: ShoppingListProvider,
-                public storage: Storage) {
+                public storage: Storage,
+                public events: Events) {
         this.storage.get('endSlides').then((endSlides) => {
             if (endSlides) this.rootPage = SearchPage;
             else this.rootPage = InstallPage;
 
+            this.events.subscribe('user:login', () => this.initializeAuth());
+            this.events.subscribe('user:logout', () => this.initializeAuth());
+
+            this.initializeAuth();
             this.initializeApp();
         });
 
@@ -38,15 +44,12 @@ export class MyApp {
             {title: 'المفضلة', component: RecipetsPage, icon: 'md-heart'},
             {title: 'اصنع وجبتك', component: MailPage, icon: 'md-restaurant'},
             {title: 'قائمة المشتريات', component: WishlistPage, icon: 'ios-basket'},
-            {title: 'اتصل بنا', component: MailPage, icon: 'md-mail'},
-            {title: 'تسجيل الخروج', component: LoginPage, icon: "log-out"},
+            {title: 'اتصل بنا', component: MailPage, icon: 'md-mail'}
         ];
     }
 
     initializeApp() {
         this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
@@ -59,9 +62,43 @@ export class MyApp {
         else if (page.title === "اصنع وجبتك")
             this.modalCtrl.create(page.component).present();
 
-        else if (page.title === 'تسجيل الخروج' || page.title === 'الرئيسية')
+        else if (
+            page.title === 'تسجيل الخروج' ||
+            page.title === 'الرئيسية' ||
+            page.title === 'إنشاء حساب' ||
+            page.title === 'تسجيل الدخول') {
+            if (page.title === 'تسجيل الخروج') {
+                this.storage.set('isAuth', false).then(() => {
+                    this.events.publish('user:logout');
+                });
+            }
+
             this.nav.setRoot(page.component);
+        }
 
         else this.nav.push(page.component);
+    }
+
+    initializeAuth() {
+        this.storage.get('isAuth').then((isAuth) => {
+            if (isAuth) {
+                this.pages.splice(this.pages.indexOf({title: 'إنشاء حساب', component: HomePage, icon: "person-add"}), 1);
+                this.pages.splice(this.pages.indexOf({title: 'تسجيل الدخول', component: LoginPage, icon: "md-log-in"}), 1);
+
+                if (this.pages.filter(page => page.title.indexOf('تسجيل الخروج') !== -1).length <= 0) {
+                    this.pages.push({title: 'تسجيل الخروج', component: LoginPage, icon: "md-log-out"});
+                }
+            } else {
+                this.pages.splice(this.pages.indexOf({title: 'تسجيل الخروج', component: LoginPage, icon: "md-log-out"}), 1);
+
+                if (this.pages.filter(page => page.title.indexOf('إنشاء حساب') !== -1).length <= 0) {
+                    this.pages.push({title: 'إنشاء حساب', component: HomePage, icon: "person-add"});
+                }
+
+                if (this.pages.filter(page => page.title.indexOf('تسجيل الدخول') !== -1).length <= 0) {
+                    this.pages.push({title: 'تسجيل الدخول', component: LoginPage, icon: "md-log-in"});
+                }
+            }
+        });
     }
 }

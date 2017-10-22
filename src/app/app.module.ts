@@ -5,7 +5,6 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {SearchPage} from '../pages/search/search';
-import {ListPage} from '../pages/list/list';
 import {RecipetsPage} from '../pages/recipets/recipets';
 import {RecipetPage} from '../pages/recipet/recipet';
 import {BrowsePage} from '../pages/browse/browse';
@@ -21,13 +20,14 @@ import {HttpModule} from "@angular/http";
 import {ShoppingListProvider} from '../providers/shopping-list/shopping-list';
 import {SearchFilterPipe} from "../pipes/search-filter/search-filter";
 import {IonicStorageModule} from "@ionic/storage";
+import {PostCardComponent} from "../components/post-card/post-card";
+import {OrderByPipe} from "../pipes/order-by/order-by";
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
         SearchPage,
-        ListPage,
         RecipetsPage,
         RecipetPage,
         BrowsePage,
@@ -35,7 +35,9 @@ import {IonicStorageModule} from "@ionic/storage";
         LoginPage,
         WishlistPage,
         InstallPage,
-        SearchFilterPipe
+        PostCardComponent,
+        SearchFilterPipe,
+        OrderByPipe
     ],
     imports: [
         BrowserModule,
@@ -50,7 +52,6 @@ import {IonicStorageModule} from "@ionic/storage";
         MyApp,
         HomePage,
         SearchPage,
-        ListPage,
         RecipetsPage,
         RecipetPage,
         BrowsePage,

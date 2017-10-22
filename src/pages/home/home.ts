@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {MenuController, NavController} from 'ionic-angular';
+import {Events, MenuController, NavController} from 'ionic-angular';
 import {SearchPage} from "../search/search";
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'page-home',
@@ -8,17 +9,14 @@ import {SearchPage} from "../search/search";
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, public menu: MenuController) {
+    constructor(public navCtrl: NavController, public menu: MenuController, public storage: Storage, public events: Events) {
         this.menu.swipeEnable(false);
     }
 
     root(){
-        this.navCtrl.setRoot(SearchPage);
+        this.storage.set('isAuth', true).then(() => {
+            this.events.publish('user:login');
+            this.navCtrl.setRoot(SearchPage);
+        });
     }
 }
-/*
-onNext(){
-    this.navCtrl.setRoot(searchPage);
-}
-*/
-

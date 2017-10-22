@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
 import {PostsProvider} from "../../providers/posts/posts";
-import {RecipetPage} from "../recipet/recipet";
 
 /**
  * Generated class for the BrowsePage page.
@@ -26,9 +25,5 @@ export class BrowsePage {
             this.posts = this.navParams.get('posts');
 
         else this.posts = this._posts.get();
-    }
-
-    openPost(post) {
-        this.navCtrl.push(RecipetPage, {post});
     }
 }

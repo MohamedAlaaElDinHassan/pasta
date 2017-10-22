@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
-import {RecipetPage} from "../recipet/recipet";
 import {PostsProvider} from "../../providers/posts/posts";
 import {SearchPage} from "../search/search";
 
@@ -20,10 +19,6 @@ export class RecipetsPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, public _posts: PostsProvider, public menu: MenuController) {
         this.menu.swipeEnable(true);
-    }
-
-    openPost(post) {
-        this.navCtrl.push(RecipetPage, {post});
     }
 
     goToBrowse() {
