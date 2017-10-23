@@ -82,14 +82,18 @@ export class MyApp {
     initializeAuth() {
         this.storage.get('isAuth').then((isAuth) => {
             if (isAuth) {
-                this.pages.splice(this.pages.indexOf({title: 'إنشاء حساب', component: HomePage, icon: "person-add"}), 1);
-                this.pages.splice(this.pages.indexOf({title: 'تسجيل الدخول', component: LoginPage, icon: "md-log-in"}), 1);
+                if (this.pages[5] !== undefined)
+                    this.pages.splice(5, 1);
+                
+                if (this.pages[6] !== undefined && this.pages[5])
+                    this.pages.splice(5, 1);
 
                 if (this.pages.filter(page => page.title.indexOf('تسجيل الخروج') !== -1).length <= 0) {
                     this.pages.push({title: 'تسجيل الخروج', component: LoginPage, icon: "md-log-out"});
                 }
             } else {
-                this.pages.splice(this.pages.indexOf({title: 'تسجيل الخروج', component: LoginPage, icon: "md-log-out"}), 1);
+                if (this.pages[5] !== undefined)
+                    this.pages.splice(5, 1);
 
                 if (this.pages.filter(page => page.title.indexOf('إنشاء حساب') !== -1).length <= 0) {
                     this.pages.push({title: 'إنشاء حساب', component: HomePage, icon: "person-add"});
